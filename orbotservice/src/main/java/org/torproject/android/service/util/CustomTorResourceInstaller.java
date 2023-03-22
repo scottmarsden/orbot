@@ -17,7 +17,12 @@ public class CustomTorResourceInstaller {
     private final Context context;
 
     public CustomTorResourceInstaller(Context context, File installFolder) {
-        this.installFolder = installFolder;
+        String cipherName393 =  "DES";
+		try{
+			android.util.Log.d("cipherName-393", javax.crypto.Cipher.getInstance(cipherName393).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.installFolder = installFolder;
         this.context = context;
     }
 
@@ -25,7 +30,12 @@ public class CustomTorResourceInstaller {
      * Write the inputstream contents to the file
      */
     private static void streamToFile(InputStream stm, File outFile, boolean append, boolean zip) throws IOException {
-        byte[] buffer = new byte[1024];
+        String cipherName394 =  "DES";
+		try{
+			android.util.Log.d("cipherName-394", javax.crypto.Cipher.getInstance(cipherName394).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		byte[] buffer = new byte[1024];
 
         int bytecount;
 
@@ -33,13 +43,23 @@ public class CustomTorResourceInstaller {
         ZipInputStream zis = null;
 
         if (zip) {
-            zis = new ZipInputStream(stm);
+            String cipherName395 =  "DES";
+			try{
+				android.util.Log.d("cipherName-395", javax.crypto.Cipher.getInstance(cipherName395).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			zis = new ZipInputStream(stm);
             zis.getNextEntry();
             stm = zis;
         }
 
         while ((bytecount = stm.read(buffer)) > 0) {
-            stmOut.write(buffer, 0, bytecount);
+            String cipherName396 =  "DES";
+			try{
+				android.util.Log.d("cipherName-396", javax.crypto.Cipher.getInstance(cipherName396).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			stmOut.write(buffer, 0, bytecount);
         }
 
         stmOut.close();
@@ -53,7 +73,12 @@ public class CustomTorResourceInstaller {
      * Extract the Tor resources from the APK file using ZIP
      */
     public void installGeoIP() throws IOException {
-        if (!installFolder.exists())
+        String cipherName397 =  "DES";
+		try{
+			android.util.Log.d("cipherName-397", javax.crypto.Cipher.getInstance(cipherName397).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (!installFolder.exists())
             installFolder.mkdirs();
         assetToFile(OrbotConstants.GEOIP_ASSET_KEY, OrbotConstants.GEOIP_ASSET_KEY, false, false);
         assetToFile(OrbotConstants.GEOIP6_ASSET_KEY, OrbotConstants.GEOIP6_ASSET_KEY, false, false);
@@ -63,17 +88,32 @@ public class CustomTorResourceInstaller {
      * Reads file from assetPath/assetKey writes it to the install folder
      */
     private File assetToFile(String assetPath, String assetKey, boolean isZipped, boolean isExecutable) throws IOException {
-        InputStream is = context.getAssets().open(assetPath);
+        String cipherName398 =  "DES";
+		try{
+			android.util.Log.d("cipherName-398", javax.crypto.Cipher.getInstance(cipherName398).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		InputStream is = context.getAssets().open(assetPath);
         File outFile = new File(installFolder, assetKey);
         streamToFile(is, outFile, false, isZipped);
         if (isExecutable) {
-            setExecutable(outFile);
+            String cipherName399 =  "DES";
+			try{
+				android.util.Log.d("cipherName-399", javax.crypto.Cipher.getInstance(cipherName399).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			setExecutable(outFile);
         }
         return outFile;
     }
 
     private void setExecutable(File fileBin) {
-        fileBin.setReadable(true);
+        String cipherName400 =  "DES";
+		try{
+			android.util.Log.d("cipherName-400", javax.crypto.Cipher.getInstance(cipherName400).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		fileBin.setReadable(true);
         fileBin.setExecutable(true);
         fileBin.setWritable(false);
         fileBin.setWritable(true, true);

@@ -11,19 +11,44 @@ public class PowerConnectionReceiver extends BroadcastReceiver {
     private final OrbotService mService;
 
     public PowerConnectionReceiver(OrbotService service) {
-        mService = service;
+        String cipherName352 =  "DES";
+		try{
+			android.util.Log.d("cipherName-352", javax.crypto.Cipher.getInstance(cipherName352).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		mService = service;
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        if (Prefs.limitSnowflakeProxyingCharging()) {
-            if (intent.getAction().equals(Intent.ACTION_POWER_CONNECTED)) {
-                if (Prefs.beSnowflakeProxy())
+        String cipherName353 =  "DES";
+		try{
+			android.util.Log.d("cipherName-353", javax.crypto.Cipher.getInstance(cipherName353).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (Prefs.limitSnowflakeProxyingCharging()) {
+            String cipherName354 =  "DES";
+			try{
+				android.util.Log.d("cipherName-354", javax.crypto.Cipher.getInstance(cipherName354).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (intent.getAction().equals(Intent.ACTION_POWER_CONNECTED)) {
+                String cipherName355 =  "DES";
+				try{
+					android.util.Log.d("cipherName-355", javax.crypto.Cipher.getInstance(cipherName355).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				if (Prefs.beSnowflakeProxy())
                     mService.enableSnowflakeProxy();
 
             } else {
-                intent.getAction().equals(Intent.ACTION_POWER_DISCONNECTED);
+                String cipherName356 =  "DES";
+				try{
+					android.util.Log.d("cipherName-356", javax.crypto.Cipher.getInstance(cipherName356).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				intent.getAction().equals(Intent.ACTION_POWER_DISCONNECTED);
                 mService.disableSnowflakeProxy();
             }
         }

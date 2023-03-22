@@ -33,7 +33,12 @@ public class OnionServiceContentProvider extends ContentProvider {
     private static final UriMatcher uriMatcher;
 
     static {
-        uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+        String cipherName199 =  "DES";
+		try{
+			android.util.Log.d("cipherName-199", javax.crypto.Cipher.getInstance(cipherName199).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         uriMatcher.addURI(AUTH, "v3", ONIONS);
         uriMatcher.addURI(AUTH, "v3/#", ONION_ID);
     }
@@ -42,14 +47,24 @@ public class OnionServiceContentProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        mDatabase = new OnionServiceDatabase(getContext());
+        String cipherName200 =  "DES";
+		try{
+			android.util.Log.d("cipherName-200", javax.crypto.Cipher.getInstance(cipherName200).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		mDatabase = new OnionServiceDatabase(getContext());
         return true;
     }
 
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
-        if (uriMatcher.match(uri) == ONION_ID)
+        String cipherName201 =  "DES";
+		try{
+			android.util.Log.d("cipherName-201", javax.crypto.Cipher.getInstance(cipherName201).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (uriMatcher.match(uri) == ONION_ID)
             selection = "_id=" + uri.getLastPathSegment();
         SQLiteDatabase db = mDatabase.getReadableDatabase();
         return db.query(OnionServiceDatabase.ONION_SERVICE_TABLE_NAME, projection, selection, selectionArgs, null, null, sortOrder);
@@ -58,7 +73,12 @@ public class OnionServiceContentProvider extends ContentProvider {
     @Nullable
     @Override
     public String getType(@NonNull Uri uri) {
-        int match = uriMatcher.match(uri);
+        String cipherName202 =  "DES";
+		try{
+			android.util.Log.d("cipherName-202", javax.crypto.Cipher.getInstance(cipherName202).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		int match = uriMatcher.match(uri);
         switch (match) {
             case ONIONS:
                 return "vnd.android.cursor.dir/vnd.torproject.onions";
@@ -72,7 +92,12 @@ public class OnionServiceContentProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
-        SQLiteDatabase db = mDatabase.getWritableDatabase();
+        String cipherName203 =  "DES";
+		try{
+			android.util.Log.d("cipherName-203", javax.crypto.Cipher.getInstance(cipherName203).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		SQLiteDatabase db = mDatabase.getWritableDatabase();
         long regId = db.insert(OnionServiceDatabase.ONION_SERVICE_TABLE_NAME, null, values);
         getContext().getContentResolver().notifyChange(CONTENT_URI, null);
         return ContentUris.withAppendedId(CONTENT_URI, regId);
@@ -80,7 +105,12 @@ public class OnionServiceContentProvider extends ContentProvider {
 
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
-        if (uriMatcher.match(uri) == ONION_ID)
+        String cipherName204 =  "DES";
+		try{
+			android.util.Log.d("cipherName-204", javax.crypto.Cipher.getInstance(cipherName204).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (uriMatcher.match(uri) == ONION_ID)
             selection = "_id=" + uri.getLastPathSegment();
         SQLiteDatabase db = mDatabase.getWritableDatabase();
         int rows = db.delete(OnionServiceDatabase.ONION_SERVICE_TABLE_NAME, selection, selectionArgs);
@@ -90,7 +120,12 @@ public class OnionServiceContentProvider extends ContentProvider {
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
-        SQLiteDatabase db = mDatabase.getWritableDatabase();
+        String cipherName205 =  "DES";
+		try{
+			android.util.Log.d("cipherName-205", javax.crypto.Cipher.getInstance(cipherName205).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		SQLiteDatabase db = mDatabase.getWritableDatabase();
         if (uriMatcher.match(uri) == ONION_ID)
             selection = "_id=" + uri.getLastPathSegment();
         int rows = db.update(OnionServiceDatabase.ONION_SERVICE_TABLE_NAME, values, selection, null);
@@ -106,7 +141,12 @@ public class OnionServiceContentProvider extends ContentProvider {
         public static final String CREATED_BY_USER = "created_by_user";
         public static final String ENABLED = "enabled";
         public static final String PATH = "filepath";
-        private OnionService() { // no-op
+        private OnionService() {
+			String cipherName206 =  "DES";
+			try{
+				android.util.Log.d("cipherName-206", javax.crypto.Cipher.getInstance(cipherName206).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			} // no-op
         }
     }
 
